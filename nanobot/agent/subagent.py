@@ -138,7 +138,7 @@ class SubagentManager:
                 iteration += 1
 
                 response = await self.provider.chat_with_retry(
-                    messages=session.get_history(max_messages=100),
+                    messages=session.get_history(max_messages=0),
                     tools=tools.get_definitions(),
                     model=self.model,
                 )
