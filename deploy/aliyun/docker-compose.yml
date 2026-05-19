@@ -1,16 +1,17 @@
 # Nanobot - Aliyun HK Deployment
 # 阿里云香港轻量服务器（2 vCPU / 1 GB RAM）专用配置
 #
+# 镜像来源：由 GitHub Actions 构建并推送到 ACR，服务器只做 pull
+# 镜像地址：通过 ACR_REGISTRY 环境变量注入（存放在 .env 文件）
+#
 # 使用方式：
-#   cp .env.example .env && vim .env   # 填入密钥
+#   cp .env.example .env && vim .env   # 填入密钥和 ACR 地址
+#   docker compose pull                # 拉取最新镜像
 #   docker compose up -d               # 启动
 #   docker compose logs -f             # 查看日志
 
 x-common: &common
-  image: nanobot:local          # 本地构建，见下方 build 配置
-  build:
-    context: ../..              # 指向仓库根目录（含 Dockerfile）
-    dockerfile: Dockerfile
+  image: ${ACR_REGISTRY}/nanobot:latest   # 从 ACR 拉取，由 .env 注入地址
   volumes:
     - ./data/.nanobot:/home/nanobot/.nanobot
   env_file: .env
