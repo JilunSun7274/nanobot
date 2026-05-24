@@ -1,8 +1,8 @@
 {
   "agents": {
     "defaults": {
-      "model": "MiniMax-M2.7",
-      "provider": "minimax",
+      "model": "<model-name>",
+      "provider": "<provider-name>",
       "timezone": "Asia/Shanghai",
       "unifiedSession": true,
       "dream": {
@@ -11,8 +11,8 @@
     }
   },
   "providers": {
-    "minimax": {
-      "apiKey": "${MINIMAX_API_KEY}"
+    "<provider-name>": {
+      "apiKey": "${<PROVIDER>_API_KEY}"
     }
   },
   "channels": {
