@@ -1,8 +1,8 @@
 {
   "agents": {
     "defaults": {
-      "model": "anthropic/claude-sonnet-4-6",
-      "provider": "openrouter",
+      "model": "MiniMax-M2.7",
+      "provider": "minimax",
       "timezone": "Asia/Shanghai",
       "unifiedSession": true,
       "dream": {
@@ -11,8 +11,8 @@
     }
   },
   "providers": {
-    "openrouter": {
-      "apiKey": "${OPENROUTER_API_KEY}"
+    "minimax": {
+      "apiKey": "${MINIMAX_API_KEY}"
     }
   },
   "channels": {
